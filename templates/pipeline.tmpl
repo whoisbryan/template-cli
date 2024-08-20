@@ -1,0 +1,29 @@
+pipeline:
+    name: $SERVICE_NAME
+    identifier: $SERVICE_NAME_UNDERSCORE
+    template:
+      templateRef: account.$TEMPLATE_ID
+      templateInputs:
+        properties:
+          ci:
+            codebase:
+              build: <+input>
+        variables:
+          - name: repo_name
+            type: String
+            value: <+input>
+          - name: team
+            type: String
+            value: <+input>
+          - name: gitops_path
+            type: String
+            value: <+input>
+          - name: gitops_repo
+            type: String
+            value: <+input>
+          - name: service_name
+            type: String
+            value: <+input>
+            tags: {}
+            projectIdentifier: $PROJECT_ID
+            orgIdentifier: $ORG_ID
